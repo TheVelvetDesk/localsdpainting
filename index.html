@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Local San Diego Painting — We Do It Right the First Time</title>
+<meta name="description" content="Family-owned San Diego painters. Interior, exterior, cabinets, wood refinishing, concrete coatings and historic homes. Licensed C33 #991999, EPA lead-safe. Free estimates: (619) 288-0656.">
+<meta name="theme-color" content="#f3efe7">
+<!-- Preview build: remove before launching on the client's domain -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Local San Diego Painting home">
+    <img src="assets/logo.webp" alt="" width="56" height="34">
+    <span>Local San Diego <b>Painting</b></span>
+  </a>
+  <nav class="nav-links" aria-label="Main">
+    <a href="#studio">Color studio</a>
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#family">Our family</a>
+  </nav>
+  <div class="nav-cta">
+    <a class="nav-phone" href="tel:+16192880656">(619) 288-0656</a>
+    <a class="btn btn-red btn-small" href="#quote">Free estimate</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HERO: the roller paints the page ================= -->
+<section class="hero" id="top" aria-label="We do it right the first time">
+  <div class="hero-stage">
+    <div class="hero-layer primed" aria-hidden="true">
+      <img src="assets/hero.webp" alt="">
+      <div class="primer-grain"></div>
+      <div class="hero-copy">
+        <p class="kicker">Primed · Taped · Ready</p>
+        <h1 class="hero-title outline"><span>We do it right</span><span>the <em>first</em> time.</span></h1>
+        <p class="hero-sub ghost">Interior, exterior, cabinets, wood and historic homes, painted by a family crew that preps like it matters. Because it does.</p>
+        <div class="hero-ctas ghost"><span class="btn">Get a free estimate</span></div>
+      </div>
+    </div>
+
+    <div class="hero-layer painted" data-painted>
+      <img src="assets/hero.webp" alt="A freshly painted white Spanish-style San Diego home at dusk">
+      <div class="hero-copy">
+        <p class="kicker">Family-owned painters · San Diego</p>
+        <h1 class="hero-title"><span>We do it right</span><span>the <em>first</em> time.</span></h1>
+        <p class="hero-sub">Interior, exterior, cabinets, wood and historic homes, painted by a family crew that preps like it matters. Because it does.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-red" href="#quote">Get a free estimate</a>
+          <a class="btn btn-ghost" href="#studio">Try colors on a house</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="roller" data-roller aria-hidden="true">
+      <div class="roller-cover"><i></i></div>
+      <svg class="roller-frame" viewBox="0 0 200 400" preserveAspectRatio="none"><path d="M196 8 H 140 Q 120 8 120 40 V 220" /><rect x="104" y="220" width="32" height="180" rx="12" /></svg>
+    </div>
+
+    <div class="tape tape-top" data-tape aria-hidden="true"></div>
+    <div class="tape tape-bottom" data-tape aria-hidden="true"></div>
+    <div class="tape tape-left" data-tape aria-hidden="true"></div>
+    <div class="tape tape-right" data-tape aria-hidden="true"></div>
+
+    <div class="hero-foot" aria-hidden="true">
+      <span class="scroll-cue"><i></i> Scroll to paint</span>
+      <span class="coat" data-coat>Coat 0 of 2</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRUST STRIP ================= -->
+<section class="trust" aria-label="Credentials">
+  <div class="wrap trust-grid">
+    <div class="trust-item"><b data-count="2500">2,500</b><span>+ projects painted</span></div>
+    <div class="trust-item"><b>C33</b><span>CA license #991999</span></div>
+    <div class="trust-item"><b>EPA</b><span>Lead-safe certified</span></div>
+    <div class="trust-item"><b>$0</b><span>Free estimates</span></div>
+    <div class="trust-item"><b>100%</b><span>Licensed, bonded &amp; insured</span></div>
+  </div>
+</section>
+
+<!-- ================= COLOR STUDIO ================= -->
+<section class="studio" id="studio" aria-labelledby="studio-title">
+  <div class="wrap">
+    <div class="studio-head">
+      <p class="kicker">The color studio</p>
+      <h2 id="studio-title">Paint a San Diego home. <em>Right now.</em></h2>
+      <p class="lede">Pick a surface, pick a color, and roll it on. The tape is already up, so the paint only lands where it should. Just like on a real job.</p>
+    </div>
+
+    <div class="studio-app">
+      <div class="studio-canvas-wrap" data-studio>
+        <canvas class="studio-canvas" aria-label="Interactive house you can paint"></canvas>
+        <svg class="studio-overlay" data-overlay viewBox="0 0 1200 700" aria-hidden="true"></svg>
+        <div class="studio-hint" data-studio-hint>Drag to roll paint</div>
+        <button class="studio-compare" type="button" data-compare aria-pressed="false">Hold to see before</button>
+      </div>
+
+      <div class="studio-panel">
+        <div class="panel-block">
+          <span class="panel-label">1 · Surface</span>
+          <div class="surfaces" role="radiogroup" aria-label="Surface to paint" data-surfaces></div>
+        </div>
+        <div class="panel-block">
+          <span class="panel-label">2 · Color</span>
+          <div class="swatches" role="radiogroup" aria-label="Paint color" data-swatches></div>
+          <p class="swatch-name" data-swatch-name></p>
+        </div>
+        <div class="panel-block">
+          <span class="panel-label">Or start from a look</span>
+          <div class="looks" data-looks></div>
+        </div>
+        <div class="panel-actions">
+          <button class="btn btn-ink btn-small" type="button" data-fill>Roll this surface</button>
+          <button class="link-btn" type="button" data-reset>Start over</button>
+        </div>
+        <div class="panel-recipe">
+          <span class="panel-label">Your recipe</span>
+          <ul data-recipe></ul>
+          <a class="btn btn-red" href="#quote" data-recipe-cta>Get an estimate with these colors</a>
+        </div>
+        <p class="panel-note">Screen colors are close, not exact. We bring real samples to your estimate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES: a fan deck ================= -->
+<section class="services" id="services" aria-labelledby="services-title">
+  <div class="wrap services-head">
+    <p class="kicker">What we paint</p>
+    <h2 id="services-title">Eight ways to a <em>better</em> finish.</h2>
+  </div>
+  <div class="fan" data-fan>
+    <article class="chip" style="--chip:#e9e1d1"><img src="assets/modern-exterior.webp" alt="" loading="lazy"><div class="chip-body"><code>LSD-01</code><h3>Exterior painting</h3><p>Stucco, wood and siding, doors, trim, fascia and eaves. Prep and minor repairs, with finishes made for San Diego's sun and salt air.</p></div></article>
+    <article class="chip" style="--chip:#c9d6dc"><img src="assets/interior.webp" alt="" loading="lazy"><div class="chip-body"><code>LSD-02</code><h3>Interior painting</h3><p>Walls, ceilings, doors, baseboards and casings. Drywall prep and minor repairs for a flawless, professional finish.</p></div></article>
+    <article class="chip" style="--chip:#f2efe8"><img src="assets/kitchen-island.webp" alt="" loading="lazy"><div class="chip-body"><code>LSD-03</code><h3>Cabinet repainting</h3><p>Give your kitchen the update it needs without the expense of replacing it.</p></div></article>
+    <article class="chip" style="--chip:#b98a5e"><img src="assets/wood-doors.webp" alt="" loading="lazy"><div class="chip-body"><code>LSD-04</code><h3>Wood refinishing</h3><p>Staining, refinishing and restoration for doors, trim and woodwork. Worn, faded and weathered wood brought back.</p></div></article>
+    <article class="chip" style="--chip:#8e9aa0"><img src="assets/concrete.webp" alt="" loading="lazy"><div class="chip-body"><code>LSD-05</code><h3>Concrete coatings</h3><p>Garage floors, patios and walkways. Durable, easy-to-maintain finishes built to last.</p></div></article>
+    <article class="chip" style="--chip:#a46f4a"><img src="assets/deck.webp" alt="" loading="lazy"><div class="chip-body"><code>LSD-06</code><h3>Decks &amp; fencing</h3><p>Your outdoor spaces deserve to look great too. Staining and sealing by a local expert.</p></div></article>
+    <article class="chip" style="--chip:#2d4a3e"><img src="assets/historic.webp" alt="" loading="lazy"><div class="chip-body"><code>LSD-07</code><h3>Historic homes</h3><p>A pro who knows lead law and historic details. EPA-certified, lead-safe practices on every older home.</p></div></article>
+    <article class="chip" style="--chip:#1f2c48"><img src="assets/entry-hall.webp" alt="" loading="lazy"><div class="chip-body"><code>LSD-08</code><h3>Commercial painting</h3><p>Offices, retail, HOAs and more. Clean, professional work with minimal disruption to your business.</p></div></article>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="process" id="process" aria-labelledby="process-title">
+  <div class="process-stage">
+    <div class="wrap process-grid">
+      <div class="process-copy">
+        <p class="kicker">How a job goes</p>
+        <h2 id="process-title">The paint is the <em>last</em> 20%.</h2>
+        <p class="lede">Anyone can roll a wall. The difference you see in five years is the prep nobody sees on day one.</p>
+        <ol class="steps" data-steps>
+          <li class="is-on"><b>01 · Estimate</b><span>A free walkthrough, real samples, and a written scope. No guessing.</span></li>
+          <li><b>02 · Protect</b><span>Floors covered, furniture moved, edges taped. Your home is treated like ours.</span></li>
+          <li><b>03 · Prep</b><span>Wash, scrape, sand, patch and caulk. Bare spots primed so the topcoat bonds.</span></li>
+          <li><b>04 · Paint</b><span>Trusted, high-quality brands. Two coats where it counts, cut in by hand.</span></li>
+          <li><b>05 · Walkthrough</b><span>We look at every wall with you before we call it done.</span></li>
+        </ol>
+      </div>
+      <div class="wall" data-wall aria-hidden="true">
+        <canvas class="wall-canvas"></canvas>
+        <div class="wall-label" data-wall-label>Weathered stucco</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORK ================= -->
+<section class="work" aria-label="Recent work">
+  <div class="work-track" data-work>
+    <figure><img src="assets/spanish-two-story.webp" alt="Two-story Spanish-style home exterior" loading="lazy"><figcaption>Exterior · Spanish revival</figcaption></figure>
+    <figure class="tall"><img src="assets/kitchen-chandelier.webp" alt="White kitchen with painted cabinets" loading="lazy"><figcaption>Cabinets · Kitchen</figcaption></figure>
+    <figure><img src="assets/craftsman.webp" alt="Craftsman home with red brick chimney" loading="lazy"><figcaption>Exterior · Craftsman</figcaption></figure>
+    <figure><img src="assets/living-room.webp" alt="Living room with wood ceiling" loading="lazy"><figcaption>Interior · Living room</figcaption></figure>
+    <figure class="tall"><img src="assets/garage-doors.webp" alt="Stained wood garage doors" loading="lazy"><figcaption>Wood · Garage doors</figcaption></figure>
+    <figure><img src="assets/laundry.webp" alt="Painted laundry room cabinets" loading="lazy"><figcaption>Cabinets · Laundry</figcaption></figure>
+    <figure><img src="assets/beams.webp" alt="Dark beamed ceiling painted" loading="lazy"><figcaption>Interior · Beamed ceiling</figcaption></figure>
+    <figure><img src="assets/spanish-cottage.webp" alt="White Spanish cottage with blue trim" loading="lazy"><figcaption>Exterior · Cottage</figcaption></figure>
+  </div>
+</section>
+
+<!-- ================= NEIGHBORHOODS ================= -->
+<section class="hoods" aria-labelledby="hoods-title">
+  <div class="wrap">
+    <div class="hoods-head">
+      <p class="kicker">Local means local</p>
+      <h2 id="hoods-title">From Coronado to <em>Rancho Santa Fe.</em></h2>
+    </div>
+    <div class="hood-grid">
+      <a class="hood" href="https://localsandiegopainting.com/cities/coronado-house-painting/"><img src="assets/line-coronado.webp" alt="" loading="lazy"><span>Coronado</span></a>
+      <a class="hood" href="https://localsandiegopainting.com/cities/la-jolla-house-painting-services/"><img src="assets/line-la-jolla.webp" alt="" loading="lazy"><span>La Jolla</span></a>
+      <a class="hood" href="https://localsandiegopainting.com/cities/mission-hills-house-painting/"><img src="assets/line-mission-hills.webp" alt="" loading="lazy"><span>Mission Hills</span></a>
+      <a class="hood" href="https://localsandiegopainting.com/cities/north-park-house-painting/"><img src="assets/line-north-park.webp" alt="" loading="lazy"><span>North Park</span></a>
+      <a class="hood" href="https://localsandiegopainting.com/cities/rancho-santa-fe-house-painting/"><img src="assets/line-rancho-santa-fe.webp" alt="" loading="lazy"><span>Rancho Santa Fe</span></a>
+    </div>
+    <p class="hood-list">Also serving San Diego, La Mesa, San Carlos, Allied Gardens, Golden Hill, Bonita, El Cajon, Mira Mesa, Spring Valley, Mission Valley, Pacific Beach, Ocean Beach, Del Mar and Encinitas.</p>
+  </div>
+</section>
+
+<!-- ================= FAMILY ================= -->
+<section class="family" id="family" aria-labelledby="family-title">
+  <div class="wrap family-grid">
+    <figure class="family-photo"><img src="assets/chad-family.webp" alt="Chad Flood with his family on the San Diego coast" loading="lazy"></figure>
+    <div class="family-copy">
+      <p class="kicker">From our family to yours</p>
+      <h2 id="family-title">A family business, <em>painting family homes.</em></h2>
+      <p>Local San Diego Painting is family owned and operated, with a commitment to excellence on every job. Detailed prep, clean work and respectful crews. We show up on time and finish on budget.</p>
+      <ul class="checks">
+        <li>Fully licensed, bonded &amp; insured · C33 #991999</li>
+        <li>EPA certified, lead-safe practices</li>
+        <li>Relationships with trusted manufacturers</li>
+        <li>Thousands of satisfied customers</li>
+      </ul>
+      <a class="text-link" href="https://share.google/j5Zkc7zsWqXM3wgcm">Read our Google reviews →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUOTE ================= -->
+<section class="quote" id="quote" aria-labelledby="quote-title">
+  <div class="wrap quote-grid">
+    <div class="quote-copy">
+      <p class="kicker">Free estimate</p>
+      <h2 id="quote-title">Tell us about <em>the job.</em></h2>
+      <p>We'll walk it with you, bring real samples, and put the scope in writing.</p>
+      <a class="big-phone" href="tel:+16192880656">(619) 288-0656</a>
+      <address>5814 College Ave<br>San Diego, CA 92120</address>
+    </div>
+    <form class="quote-form" data-quote novalidate>
+      <div class="row">
+        <label class="field"><span>Name</span><input name="name" autocomplete="name" required></label>
+        <label class="field"><span>Phone</span><input name="phone" type="tel" autocomplete="tel" required></label>
+      </div>
+      <label class="field"><span>Email</span><input name="email" type="email" autocomplete="email"></label>
+      <div class="row">
+        <label class="field"><span>Neighborhood</span><input name="area" autocomplete="address-level2" placeholder="e.g. North Park"></label>
+        <label class="field"><span>Project</span>
+          <select name="project">
+            <option>Exterior painting</option><option>Interior painting</option><option>Cabinet repainting</option><option>Wood refinishing</option><option>Concrete coatings</option><option>Decks &amp; fencing</option><option>Historic home</option><option>Commercial</option>
+          </select>
+        </label>
+      </div>
+      <div class="field recipe-field" data-recipe-field hidden>
+        <span>Colors from the studio</span>
+        <ul data-recipe-copy></ul>
+      </div>
+      <label class="field"><span>Anything we should know?</span><textarea name="message" rows="4"></textarea></label>
+      <button class="btn btn-red" type="submit">Request my estimate</button>
+      <p class="form-status" data-status role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER: wet paint ================= -->
+<footer class="footer" data-drips>
+  <canvas class="drip-canvas" aria-hidden="true"></canvas>
+  <div class="footer-inner wrap">
+    <p class="wet">Wet paint. <span>Go ahead, touch it.</span></p>
+    <h2>Let's bring your vision <em>to life.</em></h2>
+    <div class="footer-cta">
+      <a class="btn btn-red btn-large" href="#quote">Get a free estimate</a>
+      <a class="footer-phone" href="tel:+16192880656">(619) 288-0656</a>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 Local San Diego Painting · C33 #991999</span>
+      <span>5814 College Ave, San Diego, CA 92120</span>
+      <a href="https://localsandiegopainting.com/privacy-policy/">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="studio.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
