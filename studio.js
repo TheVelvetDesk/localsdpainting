@@ -114,43 +114,27 @@
     g.restore();
   };
 
-  const resetLayers = () => {
+  // Fixed internal resolution: the canvas is drawn once at this size and the
+  // browser scales it to fit. Layers are never rebuilt on resize, so paint can't be lost.
+  const setup = () => {
+    dpr = (devicePixelRatio || 1) > 1 ? 1.5 : 1;
+    scale = 1;
+    canvas.width = Math.round(VW * dpr); canvas.height = Math.round(VH * dpr);
     SURFACES.forEach((s) => {
       const l = layers.get(s.id);
       l.c.width = canvas.width; l.c.height = canvas.height;
-      l.x.setTransform(scale * dpr, 0, 0, scale * dpr, 0, 0);
+      l.x.setTransform(dpr, 0, 0, dpr, 0, 0);
       weather(l, s);
-      s.color = null;
     });
-  };
-
-  const resize = () => {
-    const w = host.clientWidth;
-    dpr = Math.min(devicePixelRatio || 1, 2);
-    scale = w / VW;
-    // only carry paint over if the layer has been set up before (a fresh canvas is 300×150, not blank-but-painted)
-    const oldLayers = [...layers.values()].map((l) => (l.ready ? l.c : null));
-    canvas.width = Math.round(w * dpr); canvas.height = Math.round(w * VH / VW * dpr);
-    SURFACES.forEach((s, i) => {
-      const l = layers.get(s.id);
-      const old = oldLayers[i];
-      const copy = old ? (() => { const t = document.createElement('canvas'); t.width = old.width; t.height = old.height; t.getContext('2d').drawImage(old, 0, 0); return t; })() : null;
-      l.c.width = canvas.width; l.c.height = canvas.height;
-      l.x.setTransform(scale * dpr, 0, 0, scale * dpr, 0, 0);
-      if (copy) { l.x.save(); l.x.setTransform(1, 0, 0, 1, 0, 0); l.x.drawImage(copy, 0, 0, canvas.width, canvas.height); l.x.restore(); }
-      else weather(l, s);
-      l.ready = true;
-    });
-    dirty = true;
   };
 
   let dirty = true;
   let showBefore = false;
-  const beforeLayers = new Map();
   const render = () => {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    SURFACES.forEach((s) => ctx.drawImage((showBefore ? beforeLayers.get(s.id) : layers.get(s.id)).c, 0, 0));
+    if (showBefore) { ctx.setTransform(dpr, 0, 0, dpr, 0, 0); SURFACES.forEach((s) => weather({ x: ctx }, s)); ctx.setTransform(1, 0, 0, 1, 0, 0); }
+    else SURFACES.forEach((s) => ctx.drawImage(layers.get(s.id).c, 0, 0));
     // light falls from the upper left; the walls round off toward the right
     ctx.setTransform(scale * dpr, 0, 0, scale * dpr, 0, 0);
     ctx.save();
@@ -243,7 +227,7 @@
 
   let busy = Promise.resolve();
   const autoRoll = (s, c, ms = 1100) => {
-    busy = busy.then(() => new Promise((resolve) => {
+    busy = busy.catch(() => {}).then(() => new Promise((resolve) => {
       surface = s; currentClip = s.p2d; color = c; setCursorColor(); syncUi();
       const b = bbox(s);
       const lane = 80;
@@ -305,7 +289,7 @@
     SURFACES.forEach((s) => autoRoll(s, byName[look.set[s.id]], s.id === 'body' ? 1300 : 700));
   });
   document.querySelector('[data-fill]').addEventListener('click', () => { hint.classList.add('gone'); autoRoll(surface, color); });
-  document.querySelector('[data-reset]').addEventListener('click', () => { resetLayers(); dirty = true; updateRecipe(); });
+  document.querySelector('[data-reset]').addEventListener('click', () => { setup(); SURFACES.forEach((s) => { s.color = null; }); dirty = true; updateRecipe(); });
 
   const compare = document.querySelector('[data-compare]');
   const holdOn = () => { showBefore = true; dirty = true; compare.setAttribute('aria-pressed', 'true'); };
@@ -328,13 +312,7 @@
   };
 
   /* ---------- go ---------- */
-  new ResizeObserver(resize).observe(host);
-  resize();
-  // keep a clean "before" set for the compare button
-  SURFACES.forEach((s) => { const l = makeLayer(); beforeLayers.set(s.id, l); });
-  const buildBefore = () => SURFACES.forEach((s) => { const l = beforeLayers.get(s.id); l.c.width = canvas.width; l.c.height = canvas.height; l.x.setTransform(scale * dpr, 0, 0, scale * dpr, 0, 0); weather(l, s); });
-  buildBefore();
-  new ResizeObserver(buildBefore).observe(host);
+  setup();
   setCursorColor(); syncUi(); updateRecipe();
   requestAnimationFrame(loop);
 
