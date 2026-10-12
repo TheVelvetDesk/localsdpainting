@@ -128,7 +128,8 @@
     const w = host.clientWidth;
     dpr = Math.min(devicePixelRatio || 1, 2);
     scale = w / VW;
-    const oldLayers = [...layers.values()].map((l) => (l.c.width ? l.c : null));
+    // only carry paint over if the layer has been set up before (a fresh canvas is 300×150, not blank-but-painted)
+    const oldLayers = [...layers.values()].map((l) => (l.ready ? l.c : null));
     canvas.width = Math.round(w * dpr); canvas.height = Math.round(w * VH / VW * dpr);
     SURFACES.forEach((s, i) => {
       const l = layers.get(s.id);
@@ -138,6 +139,7 @@
       l.x.setTransform(scale * dpr, 0, 0, scale * dpr, 0, 0);
       if (copy) { l.x.save(); l.x.setTransform(1, 0, 0, 1, 0, 0); l.x.drawImage(copy, 0, 0, canvas.width, canvas.height); l.x.restore(); }
       else weather(l, s);
+      l.ready = true;
     });
     dirty = true;
   };
